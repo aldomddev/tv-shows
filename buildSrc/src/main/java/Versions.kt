@@ -22,6 +22,8 @@ object Versions {
     const val jetBrainsCoroutines = "1.6.4"
     const val kotlinSerialization = "1.4.0"
 
+    const val okHttpCore = "4.9.0"
+    const val okHttpLoggingInterceptor = "4.9.0"
     const val retrofit = "2.9.0"
     const val retrofitKotlinSerializationConverter = "0.8.0"
 

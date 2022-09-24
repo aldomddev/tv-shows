@@ -6,6 +6,7 @@ plugins {
     id(Dependencies.BuildPlugins.kotlinAndroid)
     id(Dependencies.BuildPlugins.kotlinKapt)
     id(Dependencies.BuildPlugins.kotlinParcelize)
+    id(Dependencies.BuildPlugins.kotlinSerialization)
     id(Dependencies.BuildPlugins.navigationSageArgs)
 }
 

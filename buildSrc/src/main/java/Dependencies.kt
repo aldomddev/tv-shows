@@ -15,6 +15,7 @@ object Dependencies {
         const val kotlinAndroidExtensions = "kotlin-android-extensions"
         const val kotlinKapt = "kotlin-kapt"
         const val kotlinParcelize = "kotlin-parcelize"
+        const val kotlinSerialization = "kotlinx-serialization"
 
         const val navigationSageArgs = "androidx.navigation.safeargs.kotlin"
         const val navigationSageArgsGradle = "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.androidxNavigation}"
@@ -52,6 +53,10 @@ object Dependencies {
         const val jetBrainsCoroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.jetBrainsCoroutines}"
         const val jetBrainsCoroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.jetBrainsCoroutines}"
         const val kotlinSerialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.kotlinSerialization}"
+
+        const val okHttpCore = "com.squareup.okhttp3:okhttp:${Versions.okHttpCore}"
+        const val okHttpLoggingInterceptor =
+            "com.squareup.okhttp3:logging-interceptor:${Versions.okHttpLoggingInterceptor}"
 
         const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
         const val retrofitKotlinSerializationConverter = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:${Versions.retrofitKotlinSerializationConverter}"
@@ -106,6 +111,8 @@ fun DependencyHandler.dependOnNavigation() {
 fun DependencyHandler.dependOnRetrofit() {
     implementation(Deps.retrofit)
     implementation(Deps.retrofitKotlinSerializationConverter)
+    implementation(Deps.okHttpCore)
+    implementation(Deps.okHttpLoggingInterceptor)
 }
 
 fun DependencyHandler.dependOnRoom() {
