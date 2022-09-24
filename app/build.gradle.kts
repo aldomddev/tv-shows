@@ -49,6 +49,7 @@ dependencies {
     implementation(Deps.androidxConstraintLayout)
     implementation(Deps.androidMaterial)
     implementation(Deps.kotlinSerialization)
+    implementation(Deps.androidxPaging)
     dependOnCoroutines()
     dependOnHilt()
     dependOnLifecycle()

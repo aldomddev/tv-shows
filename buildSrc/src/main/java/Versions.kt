@@ -10,6 +10,7 @@ object Versions {
     const val androidxConstraintLayout = "2.1.4"
     const val androidxLifecycle = "2.5.1"
     const val androidxNavigation = "2.5.2"
+    const val androidxPaging = "3.1.1"
     const val androidxRoom = "2.4.3"
 
     const val materialDialogsDateTime = "0.8.1-rc"
