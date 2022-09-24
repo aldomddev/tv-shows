@@ -25,9 +25,7 @@ class ShowViewHolder(
         with(binding) {
             tvShowName.text = item.name
             if (item.mediumImageUrl.isNotEmpty()) {
-                ivShowPoster.load(item.mediumImageUrl) {
-                    placeholder(R.drawable.ic_tv_shows)
-                }
+                ivShowPoster.load(item.mediumImageUrl)
             }
         }
     }
