@@ -44,6 +44,9 @@ object Dependencies {
         const val androidxRoomExtensions = "androidx.room:room-ktx:${Versions.androidxRoom}"
         const val androidxRoomRuntime = "androidx.room:room-runtime:${Versions.androidxRoom}"
         const val androidxRoomTesting = "androidx.room:room-testing:${Versions.androidxRoom}"
+        const val androidxWorkManager = "androidx.work:work-runtime-ktx:${Versions.androidxWorkManager}"
+
+        const val coil = "io.coil-kt:coil:${Versions.coil}"
 
         const val hiltAndroid = "com.google.dagger:hilt-android:${Versions.hiltAndroid}"
         const val hiltAndroidCompiler = "com.google.dagger:hilt-android-compiler:${Versions.hiltAndroid}"
@@ -66,8 +69,6 @@ object Dependencies {
         // Tests
         const val androidxJunit = "androidx.test.ext:junit:${Versions.androidxJunit}"
         const val androidxEspresso = "androidx.test.espresso:espresso-core:${Versions.androidxEspresso}"
-        const val androidxComposeJunit = "androidx.compose.ui:ui-test-junit4:${Versions.androidxComposeJunit}"
-
         const val junit = "junit:junit:${Versions.junit}"
     }
 
@@ -125,7 +126,6 @@ fun DependencyHandler.dependOnTests() {
     testImplementation(Deps.junit)
     androidTestImplementation(Deps.androidxJunit)
     androidTestImplementation(Deps.androidxEspresso)
-    androidTestImplementation(Deps.androidxComposeJunit)
 }
 // endregion
 

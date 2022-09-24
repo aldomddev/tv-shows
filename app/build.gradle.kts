@@ -50,6 +50,8 @@ dependencies {
     implementation(Deps.androidxConstraintLayout)
     implementation(Deps.androidxCore)
     implementation(Deps.androidxPaging)
+    implementation(Deps.androidxWorkManager)
+    implementation(Deps.coil)
     implementation(Deps.kotlinSerialization)
     dependOnCoroutines()
     dependOnHilt()
