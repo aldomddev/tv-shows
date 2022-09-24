@@ -29,8 +29,6 @@ object Dependencies {
     }
 
     object Deps {
-        const val accompanistSystemUiController = "com.google.accompanist:accompanist-systemuicontroller:${Versions.accompanist}"
-
         const val androidMaterial = "com.google.android.material:material:${Versions.androidMaterial}"
 
         const val androidxAppCompat = "androidx.appcompat:appcompat:${Versions.androidxAppCompat}"

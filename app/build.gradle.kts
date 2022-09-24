@@ -2,11 +2,11 @@ import Dependencies.Deps
 
 plugins {
     id(Dependencies.BuildPlugins.androidApplication)
+    id(Dependencies.BuildPlugins.daggerHiltAndroid)
     id(Dependencies.BuildPlugins.kotlinAndroid)
     id(Dependencies.BuildPlugins.kotlinKapt)
     id(Dependencies.BuildPlugins.kotlinParcelize)
     id(Dependencies.BuildPlugins.navigationSageArgs)
-    id(Dependencies.BuildPlugins.daggerHiltAndroid)
 }
 
 android {
@@ -44,12 +44,12 @@ android {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
-    implementation(Deps.androidxAppCompat)
-    implementation(Deps.androidxCore)
-    implementation(Deps.androidxConstraintLayout)
     implementation(Deps.androidMaterial)
-    implementation(Deps.kotlinSerialization)
+    implementation(Deps.androidxAppCompat)
+    implementation(Deps.androidxConstraintLayout)
+    implementation(Deps.androidxCore)
     implementation(Deps.androidxPaging)
+    implementation(Deps.kotlinSerialization)
     dependOnCoroutines()
     dependOnHilt()
     dependOnLifecycle()
