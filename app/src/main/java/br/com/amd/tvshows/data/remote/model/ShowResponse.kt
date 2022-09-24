@@ -13,8 +13,8 @@ data class ShowResponse(
     val name: String,
 
     @SerialName("rating")
-    val rating: ShowRatingResponse,
+    val rating: ShowRatingResponse? = null,
 
     @SerialName("image")
-    val imageResponse: ShowImageResponse
+    val imageResponse: ShowImageResponse? = null
 )

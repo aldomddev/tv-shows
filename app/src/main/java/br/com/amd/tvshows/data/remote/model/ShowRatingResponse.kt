@@ -5,5 +5,5 @@ import kotlinx.serialization.SerialName
 @kotlinx.serialization.Serializable
 data class ShowRatingResponse(
     @SerialName("average")
-    val average: Float = 0.0f
+    val average: Double? = null
 )
