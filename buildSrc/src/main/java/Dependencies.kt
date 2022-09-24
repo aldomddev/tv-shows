@@ -52,7 +52,8 @@ object Dependencies {
         const val hiltExtensionCompiler = "androidx.hilt:hilt-compiler:${Versions.hiltExtensionCompiler}"
         const val hiltAndroidWorkManager = "androidx.hilt:hilt-work:${Versions.hiltExtensionCompiler}"
 
-        const val jetBrainsCoroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.jetBrainsCoroutines}"
+        const val jetBrainsCoroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.jetBrainsCoroutines}"
+        const val jetBrainsCoroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.jetBrainsCoroutines}"
         const val kotlinSerialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.kotlinSerialization}"
 
         const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
@@ -80,7 +81,8 @@ object Dependencies {
 
 // region dependencies extensions
 fun DependencyHandler.dependOnCoroutines() {
-    implementation(Deps.jetBrainsCoroutines)
+    implementation(Deps.jetBrainsCoroutinesCore)
+    implementation(Deps.jetBrainsCoroutinesAndroid)
 }
 
 fun DependencyHandler.dependOnHilt() {
