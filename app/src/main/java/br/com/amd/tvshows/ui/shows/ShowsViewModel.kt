@@ -6,7 +6,7 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.map
 import br.com.amd.tvshows.data.remote.datasource.ShowsPagingSource
-import br.com.amd.tvshows.ui.mapper.toShowPresenter
+import br.com.amd.tvshows.ui.mapper.toShowUi
 import br.com.amd.tvshows.ui.model.ShowVO
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
@@ -25,6 +25,6 @@ class ShowsViewModel @Inject constructor(
         ),
         pagingSourceFactory = { showsPagingSource }
     ).flow.map { pagingData ->
-        pagingData.map { it.toShowPresenter() }
+        pagingData.map { it.toShowUi() }
     }
 }

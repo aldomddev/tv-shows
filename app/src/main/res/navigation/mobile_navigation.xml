@@ -3,13 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_shows">
 
     <fragment
-        android:id="@+id/navigation_home"
+        android:id="@+id/navigation_shows"
         android:name="br.com.amd.tvshows.ui.shows.ShowsFragment"
         android:label="@string/title_shows"
-        tools:layout="@layout/fragment_shows" />
+        tools:layout="@layout/fragment_shows">
+        <action
+            android:id="@+id/action_navigation_shows_to_navigation_show_details"
+            app:destination="@id/navigation_show_details" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_show_details"
+        android:name="br.com.amd.tvshows.ui.showdetails.ShowDetailsFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_show_details">
+
+        <argument
+            android:name="showId"
+            android:defaultValue="0L"
+            app:argType="long" />
+
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_dashboard"
@@ -18,7 +35,7 @@
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_favorites"
         android:name="br.com.amd.tvshows.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />

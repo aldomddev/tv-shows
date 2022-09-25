@@ -1,13 +1,11 @@
 package br.com.amd.tvshows.domain.model
 
-data class Show(
+data class ShowEpisode(
     val id: Long,
     val name: String,
     val summary: String,
-    val rating: Double,
+    val season: Int,
+    val number: Int,
     val mediumImageUrl: String,
     val originalImageUrl: String,
-    val genres: List<String>,
-    val schedule: ShowSchedule,
-    val episodes: List<ShowEpisode>
 )

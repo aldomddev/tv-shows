@@ -1,13 +1,11 @@
 package br.com.amd.tvshows.ui.model
 
-data class ShowVO(
+data class ShowEpisodeVO(
     val id: Long,
     val name: String,
     val summary: String,
-    val rating: Double,
+    val season: Int,
+    val number: Int,
     val mediumImageUrl: String,
     val originalImageUrl: String,
-    val genres: List<String>,
-    val schedule: ShowScheduleVO,
-    val episodes: List<ShowEpisodeVO>
 )

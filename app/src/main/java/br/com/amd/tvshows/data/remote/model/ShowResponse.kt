@@ -12,9 +12,21 @@ data class ShowResponse(
     @SerialName("name")
     val name: String,
 
+    @SerialName("summary")
+    val summary: String,
+
+    @SerialName("schedule")
+    val schedule: ShowScheduleResponse? = null,
+
+    @SerialName("genres")
+    val genres: List<String>? = null,
+
     @SerialName("rating")
-    val rating: ShowRatingResponse? = null,
+    val rating: RatingResponse? = null,
 
     @SerialName("image")
-    val imageResponse: ShowImageResponse? = null
+    val imageResponse: ImageResponse? = null,
+
+    @SerialName("episodes")
+    val episodes: List<ShowEpisodeResponse>? = null
 )
