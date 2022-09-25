@@ -48,6 +48,9 @@ object Dependencies {
 
         const val coil = "io.coil-kt:coil:${Versions.coil}"
 
+        const val groupie = "com.github.lisawray.groupie:groupie:${Versions.groupie}"
+        const val groupieViewbinding = "com.github.lisawray.groupie:groupie-viewbinding:${Versions.groupie}"
+
         const val hiltAndroid = "com.google.dagger:hilt-android:${Versions.hiltAndroid}"
         const val hiltAndroidCompiler = "com.google.dagger:hilt-android-compiler:${Versions.hiltAndroid}"
         const val hiltExtensionCompiler = "androidx.hilt:hilt-compiler:${Versions.hiltExtensionCompiler}"
@@ -86,6 +89,11 @@ object Dependencies {
 fun DependencyHandler.dependOnCoroutines() {
     implementation(Deps.jetBrainsCoroutinesCore)
     implementation(Deps.jetBrainsCoroutinesAndroid)
+}
+
+fun DependencyHandler.dependOnGroupie() {
+    implementation(Deps.groupie)
+    implementation(Deps.groupieViewbinding)
 }
 
 fun DependencyHandler.dependOnHilt() {

@@ -9,5 +9,5 @@ data class ShowVO(
     val originalImageUrl: String,
     val genres: List<String>,
     val schedule: ShowScheduleVO,
-    val episodes: List<ShowEpisodeVO>
+    val seasons: List<ShowSeasonVO>
 )

@@ -5,6 +5,7 @@ import br.com.amd.tvshows.domain.model.ShowEpisode
 import br.com.amd.tvshows.domain.model.ShowSchedule
 import br.com.amd.tvshows.ui.model.ShowEpisodeVO
 import br.com.amd.tvshows.ui.model.ShowScheduleVO
+import br.com.amd.tvshows.ui.model.ShowSeasonVO
 import br.com.amd.tvshows.ui.model.ShowVO
 
 fun Show.toShowUi(): ShowVO {
@@ -17,7 +18,7 @@ fun Show.toShowUi(): ShowVO {
         originalImageUrl = originalImageUrl,
         genres = genres,
         schedule = schedule.toShowScheduleUi(),
-        episodes = episodes.toShowEpisodeUi()
+        seasons = episodes.toShowSeasonsUi()
     )
 }
 
@@ -40,4 +41,19 @@ fun ShowEpisode.toShowEpisodeUi(): ShowEpisodeVO {
 }
 
 fun List<ShowEpisode>.toShowEpisodeUi() = map { it.toShowEpisodeUi() }
+
+fun List<ShowEpisode>.toShowSeasonsUi(): List<ShowSeasonVO> {
+    val seasonsAndEpisodesMap = this.groupBy { showEpisode -> showEpisode.season}
+
+    val seasons = mutableListOf<ShowSeasonVO>()
+    seasonsAndEpisodesMap.forEach { s ->
+        val season = ShowSeasonVO(
+            number = s.key,
+            episodes = s.value.toShowEpisodeUi()
+        )
+        seasons.add(season)
+    }
+
+    return seasons
+}
 

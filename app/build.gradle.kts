@@ -54,6 +54,7 @@ dependencies {
     implementation(Deps.coil)
     implementation(Deps.kotlinSerialization)
     dependOnCoroutines()
+    dependOnGroupie()
     dependOnHilt()
     dependOnLifecycle()
     dependOnNavigation()

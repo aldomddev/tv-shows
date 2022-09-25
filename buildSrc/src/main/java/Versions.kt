@@ -12,6 +12,8 @@ object Versions {
 
     const val coil = "2.2.1"
 
+    const val groupie = "2.10.1"
+
     const val gradleVersionsPlugin = "0.42.0"
     const val hiltAndroid = "2.43.2"
     const val hiltExtensionCompiler = "1.0.0"

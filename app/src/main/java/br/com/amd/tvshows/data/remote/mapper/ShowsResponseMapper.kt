@@ -17,7 +17,7 @@ fun ShowResponse.toDomainShow(): Show {
         originalImageUrl = imageResponse?.original.orEmpty(),
         genres = genres.orEmpty(),
         schedule = schedule?.toShowScheduleDomain() ?: ShowSchedule(time = "", days = emptyList()),
-        episodes = episodes?.toShowEpisodeDomain() ?: emptyList()
+        episodes = embedded?.episodes?.toShowEpisodeDomain() ?: emptyList()
     )
 }
 

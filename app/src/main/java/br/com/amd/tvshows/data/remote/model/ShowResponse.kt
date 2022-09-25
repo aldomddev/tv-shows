@@ -27,6 +27,6 @@ data class ShowResponse(
     @SerialName("image")
     val imageResponse: ImageResponse? = null,
 
-    @SerialName("episodes")
-    val episodes: List<ShowEpisodeResponse>? = null
+    @SerialName("_embedded")
+    val embedded: ShowEmbeddedResponse? = null
 )
