@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.amd.tvshows.databinding.FragmentShowDetailsBinding
+import br.com.amd.tvshows.ui.model.ShowEpisodeVO
 import br.com.amd.tvshows.ui.model.ShowVO
 import coil.load
 import com.google.android.material.chip.Chip
@@ -95,15 +96,25 @@ class ShowDetailsFragment : Fragment() {
                 val seasonExpandableGroup = ExpandableSeasonHeaderItem("Season ${season.number}")
                 adapter.add(ExpandableGroup(seasonExpandableGroup).apply {
                     season.episodes.forEach { episode ->
-                        add(EpisodeItem(episode.name))
+                        add(EpisodeItem(episode))
                     }
                 })
             }
         }
     }
 
+    private fun onEpisodeClick(item: ShowEpisodeVO) {
+
+    }
+
     private val onEpisodeClickListener = OnItemClickListener { item, _ ->
-        Toast.makeText(requireContext(), "Episode", Toast.LENGTH_SHORT).show()
+        if (item is EpisodeItem) {
+            Toast.makeText(
+                requireContext(),
+                "Episode: ${item.getEpisode().name}",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
     }
 
     override fun onDestroyView() {

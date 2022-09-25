@@ -1,10 +1,8 @@
 package br.com.amd.tvshows.ui.shows
 
 import androidx.lifecycle.ViewModel
-import androidx.paging.Pager
-import androidx.paging.PagingConfig
-import androidx.paging.PagingData
-import androidx.paging.map
+import androidx.lifecycle.viewModelScope
+import androidx.paging.*
 import br.com.amd.tvshows.data.remote.datasource.ShowsPagingSource
 import br.com.amd.tvshows.ui.mapper.toShowUi
 import br.com.amd.tvshows.ui.model.ShowVO
@@ -26,5 +24,5 @@ class ShowsViewModel @Inject constructor(
         pagingSourceFactory = { showsPagingSource }
     ).flow.map { pagingData ->
         pagingData.map { it.toShowUi() }
-    }
+    }.cachedIn(viewModelScope)
 }
