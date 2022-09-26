@@ -1,15 +1,16 @@
-package br.com.amd.tvshows.ui.shows
+package br.com.amd.tvshows.ui.dashboard
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import br.com.amd.tvshows.databinding.ShowListItemBinding
 import br.com.amd.tvshows.ui.model.ShowVO
+import br.com.amd.tvshows.ui.shows.ShowViewHolder
 
-class ShowsAdapter(
+class SearchShowAdapter(
     private val onItemClick: (ShowVO) -> Unit
-) : PagingDataAdapter<ShowVO, ShowViewHolder>(DIFF_CALLBACK) {
+): ListAdapter<ShowVO, ShowViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShowViewHolder {
         val binding = ShowListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -17,10 +18,7 @@ class ShowsAdapter(
     }
 
     override fun onBindViewHolder(holder: ShowViewHolder, position: Int) {
-        val item = getItem(position)
-        item?.let {
-            holder.bind(it)
-        }
+        holder.bind(currentList[position])
     }
 
     private companion object {

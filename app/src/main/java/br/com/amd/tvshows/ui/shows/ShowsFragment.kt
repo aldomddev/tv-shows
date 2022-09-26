@@ -26,7 +26,7 @@ class ShowsFragment : Fragment() {
 
     private val viewModel: ShowsViewModel by viewModels()
 
-    private lateinit var showsAdapter: ShowsAdapter
+    private lateinit var showsPagingAdapter: ShowsPagingAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -44,25 +44,25 @@ class ShowsFragment : Fragment() {
         lifecycleScope.launch {
             viewModel.shows.flowWithLifecycle(lifecycle, Lifecycle.State.STARTED)
                 .collectLatest {
-                    showsAdapter.submitData(it)
+                    showsPagingAdapter.submitData(it)
                 }
         }
     }
 
     private fun FragmentShowsBinding.bindAdapter() {
-        showsAdapter = ShowsAdapter(::onShowClick)
+        showsPagingAdapter = ShowsPagingAdapter(::onShowClick)
         val gridLayoutManager =
             GridLayoutManager(requireContext(), 2, LinearLayoutManager.VERTICAL, false)
 
         with(rvAllShows) {
             layoutManager = gridLayoutManager
-            adapter = showsAdapter
+            adapter = showsPagingAdapter
         }
     }
 
     private fun onShowClick(showVO: ShowVO) {
         val action =
-            ShowsFragmentDirections.actionNavigationShowsToNavigationShowDetails(showId = showVO.id)
+            ShowsFragmentDirections.actionShowsScreenToShowDetailsScreen(showId = showVO.id)
         findNavController().navigate(action)
     }
 

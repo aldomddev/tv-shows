@@ -19,4 +19,13 @@ class ShowsRepositoryImpl @Inject constructor(
             tvMazeApi.getShowDetailsById(showId).toDomainShow()
         }
     }
+
+    override suspend fun searchShows(showName: String): List<Show> {
+        return withContext(ioDispatcher) {
+            val result = tvMazeApi.searchShows(showName).map {
+                it.show.toDomainShow()
+            }
+            result
+        }
+    }
 }

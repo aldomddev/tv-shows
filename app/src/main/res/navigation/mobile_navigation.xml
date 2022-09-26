@@ -11,7 +11,7 @@
         android:label="@string/title_shows"
         tools:layout="@layout/fragment_shows">
         <action
-            android:id="@+id/action_navigation_shows_to_navigation_show_details"
+            android:id="@+id/action_shows_screen_to_show_details_screen"
             app:destination="@id/navigation_show_details" />
     </fragment>
 
@@ -30,9 +30,13 @@
 
     <fragment
         android:id="@+id/navigation_search"
-        android:name="br.com.amd.tvshows.ui.dashboard.DashboardFragment"
+        android:name="br.com.amd.tvshows.ui.dashboard.SearchShowFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_search_show" >
+        <action
+            android:id="@+id/action_search_screen_to_show_details_screen"
+            app:destination="@id/navigation_show_details" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_favorites"

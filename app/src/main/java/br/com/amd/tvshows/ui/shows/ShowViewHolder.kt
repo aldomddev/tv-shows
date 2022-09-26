@@ -26,6 +26,8 @@ class ShowViewHolder(
             tvShowName.text = item.name
             if (item.mediumImageUrl.isNotEmpty()) {
                 ivShowPoster.load(item.mediumImageUrl)
+            } else {
+                ivShowPoster.load(R.drawable.ic_tv_shows)
             }
         }
     }

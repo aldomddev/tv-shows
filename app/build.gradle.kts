@@ -53,6 +53,7 @@ dependencies {
     implementation(Deps.androidxWorkManager)
     implementation(Deps.coil)
     implementation(Deps.kotlinSerialization)
+    implementation("androidx.appcompat:appcompat:1.5.1")
     dependOnCoroutines()
     dependOnGroupie()
     dependOnHilt()
