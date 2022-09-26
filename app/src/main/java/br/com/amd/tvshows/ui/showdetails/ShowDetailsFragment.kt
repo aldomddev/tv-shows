@@ -84,6 +84,15 @@ class ShowDetailsFragment : Fragment() {
 
         ivShowPoster.load(showDetails.mediumImageUrl)
 
+        val schedule = StringBuilder("Every ")
+        if (showDetails.schedule.days.isNotEmpty()) {
+            showDetails.schedule.days.forEach { day ->
+                schedule.append("$day ")
+            }
+        }
+        schedule.append("at ${showDetails.schedule.time}")
+        tvAirs.text = schedule
+
         if (showDetails.genres.isNotEmpty()) {
             showDetails.genres.forEach { genre ->
                 val chip = Chip(requireContext()).apply { text = genre }
