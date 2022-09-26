@@ -13,7 +13,7 @@ data class ShowResponse(
     val name: String,
 
     @SerialName("summary")
-    val summary: String,
+    val summary: String? = "",
 
     @SerialName("schedule")
     val schedule: ShowScheduleResponse? = null,

@@ -11,7 +11,7 @@ fun ShowResponse.toDomainShow(): Show {
     return Show(
         id = id,
         name = name,
-        summary = summary,
+        summary = summary.orEmpty(),
         rating = rating?.average ?: 0.0,
         mediumImageUrl = imageResponse?.medium.orEmpty(),
         originalImageUrl = imageResponse?.original.orEmpty(),
@@ -34,7 +34,7 @@ fun ShowEpisodeResponse.toShowEpisodeDomain(): ShowEpisode {
     return ShowEpisode(
         id,
         name,
-        summary,
+        summary.orEmpty(),
         season,
         number,
         mediumImageUrl = imageResponse?.medium.orEmpty(),

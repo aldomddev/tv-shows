@@ -13,7 +13,7 @@ data class ShowEpisodeResponse(
     val name: String,
 
     @SerialName("summary")
-    val summary: String,
+    val summary: String? = "",
 
     @SerialName("season")
     val season: Int,
