@@ -27,7 +27,7 @@ fun List<Show>.toShowUi() = map { it.toShowUi() }
 
 fun ShowVO.toFavoriteShowDomain(): FavoriteShow {
     return FavoriteShow(
-        id = 0,
+        id = favoriteId,
         showId = id,
         name = name,
         imageUrl = mediumImageUrl
@@ -66,4 +66,21 @@ fun List<ShowEpisode>.toShowSeasonsUi(): List<ShowSeasonVO> {
 
     return seasons
 }
+
+fun FavoriteShow.toShowUi(): ShowVO {
+    return ShowVO(
+        id = showId,
+        favoriteId = id,
+        name = name,
+        summary = "",
+        rating = 0.0,
+        mediumImageUrl = imageUrl,
+        originalImageUrl = "",
+        genres = emptyList(),
+        schedule = ShowScheduleVO(time = "", days = emptyList()),
+        seasons = emptyList()
+    )
+}
+
+fun List<FavoriteShow>.toShowVOUi() = map { it.toShowUi() }
 

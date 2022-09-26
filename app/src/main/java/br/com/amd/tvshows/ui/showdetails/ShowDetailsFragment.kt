@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.amd.tvshows.databinding.FragmentShowDetailsBinding
+import br.com.amd.tvshows.ui.common.ViewState
 import br.com.amd.tvshows.ui.model.ShowEpisodeVO
 import br.com.amd.tvshows.ui.model.ShowVO
 import coil.load
@@ -63,11 +64,10 @@ class ShowDetailsFragment : Fragment() {
     private fun setObservers() {
         viewModel.viewState.observe(viewLifecycleOwner) { viewState ->
             when (viewState) {
-                ShowDetailsViewModel.ShowDetailsViewState.Loading -> binding.showLoadingState()
-                ShowDetailsViewModel.ShowDetailsViewState.Error -> binding.showErrorState()
-                is ShowDetailsViewModel.ShowDetailsViewState.Loaded -> binding.showLoadedState(
-                    viewState.data
-                )
+                ViewState.Loading -> binding.showLoadingState()
+                ViewState.Error -> binding.showErrorState()
+                is ViewState.Loaded -> binding.showLoadedState(viewState.data)
+                ViewState.Empty -> { /* no action */ }
             }
         }
     }

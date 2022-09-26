@@ -43,9 +43,13 @@
 
     <fragment
         android:id="@+id/navigation_favorites"
-        android:name="br.com.amd.tvshows.ui.notifications.NotificationsFragment"
+        android:name="br.com.amd.tvshows.ui.favorites.FavoritesFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_favorites" >
+        <action
+            android:id="@+id/action_favorites_screen_to_show_details_screen"
+            app:destination="@id/navigation_show_details" />
+    </fragment>
 
     <fragment
         android:id="@+id/episodeDetailsFragment"

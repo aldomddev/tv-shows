@@ -6,4 +6,6 @@
     <string name="title_show_details">Show details</string>
     <string name="title_episode_details">Episode details</string>
     <string name="episode_details.season_and_number">Episode %1$d, season %2$d</string>
+    <string name="favorite_shows.empty_list">You don\'t have any favorite shows yet.</string>
+    <string name="favorite_shows.error_message">Something went wrong loading you\'re favorite shows.</string>
 </resources>

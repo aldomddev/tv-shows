@@ -2,7 +2,7 @@ package br.com.amd.tvshows.data.local.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import br.com.amd.tvshows.data.local.dao.ShowsDao
+import br.com.amd.tvshows.data.local.dao.FavoriteShowsDao
 import br.com.amd.tvshows.data.local.model.FavoriteShowEntity
 
 @Database(
@@ -11,5 +11,5 @@ import br.com.amd.tvshows.data.local.model.FavoriteShowEntity
     version = 1
 )
 abstract class ShowsDatabase : RoomDatabase() {
-    abstract fun showsDao(): ShowsDao
+    abstract fun showsDao(): FavoriteShowsDao
 }

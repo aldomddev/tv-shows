@@ -1,6 +1,6 @@
-package br.com.amd.tvshows.data.remote.repository
+package br.com.amd.tvshows.data.repository
 
-import br.com.amd.tvshows.data.local.dao.ShowsDao
+import br.com.amd.tvshows.data.local.dao.FavoriteShowsDao
 import br.com.amd.tvshows.data.local.mapper.toFavouriteShowData
 import br.com.amd.tvshows.data.local.mapper.toFavouriteShowDomain
 import br.com.amd.tvshows.data.remote.api.TvMazeApi
@@ -10,16 +10,15 @@ import br.com.amd.tvshows.domain.model.FavoriteShow
 import br.com.amd.tvshows.domain.model.Show
 import br.com.amd.tvshows.domain.repository.ShowsRepository
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.transform
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class ShowsRepositoryImpl @Inject constructor(
     private val tvMazeApi: TvMazeApi,
-    private val showsDao: ShowsDao,
+    private val favoriteShowsDao: FavoriteShowsDao,
     @IoDispatcher private val ioDispatcher: CoroutineDispatcher
 ) : ShowsRepository {
+
 
     override suspend fun getShowDetailsById(showId: Long): Show {
         return withContext(ioDispatcher) {
@@ -36,27 +35,27 @@ class ShowsRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun getFavouriteShows(): Flow<List<FavoriteShow>> {
+    override suspend fun getAllFavoriteShows(): List<FavoriteShow> {
         return withContext(ioDispatcher) {
-            showsDao.all().transform { show -> emit(show.toFavouriteShowDomain()) }
+            favoriteShowsDao.getAll().toFavouriteShowDomain()
         }
     }
 
-    override suspend fun findByShowId(showId: Long): FavoriteShow? {
+    override suspend fun findFavoriteByShowId(showId: Long): FavoriteShow? {
         return withContext(ioDispatcher) {
-            showsDao.findByShowId(showId)?.toFavouriteShowDomain()
+            favoriteShowsDao.findByShowId(showId)?.toFavouriteShowDomain()
         }
     }
 
-    override suspend fun saveOrUpdate(show: FavoriteShow) {
+    override suspend fun saveFavoriteShow(show: FavoriteShow) {
         return withContext(ioDispatcher) {
-            showsDao.saveOrUpdate(show.toFavouriteShowData())
+            favoriteShowsDao.saveOrUpdate(show.toFavouriteShowData())
         }
     }
 
-    override suspend fun delete(show: FavoriteShow) {
+    override suspend fun deleteFavoriteShow(show: FavoriteShow) {
         return withContext(ioDispatcher) {
-            showsDao.delete(show.toFavouriteShowData())
+            favoriteShowsDao.delete(show.toFavouriteShowData())
         }
     }
 }

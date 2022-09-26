@@ -1,4 +1,4 @@
-package br.com.amd.tvshows.ui.showdetails
+package br.com.amd.tvshows.ui.favorites
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -7,29 +7,30 @@ import androidx.lifecycle.viewModelScope
 import br.com.amd.tvshows.domain.repository.ShowsRepository
 import br.com.amd.tvshows.ui.common.ViewState
 import br.com.amd.tvshows.ui.mapper.toFavoriteShowDomain
-import br.com.amd.tvshows.ui.mapper.toShowUi
+import br.com.amd.tvshows.ui.mapper.toShowVOUi
 import br.com.amd.tvshows.ui.model.ShowVO
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ShowDetailsViewModel @Inject constructor(
+class FavoritesViewModel @Inject constructor(
     private val showsRepository: ShowsRepository
 ) : ViewModel() {
 
-    private val _viewState = MutableLiveData<ViewState<ShowVO>>()
-    val viewState: LiveData<ViewState<ShowVO>> = _viewState
+    private val _viewState = MutableLiveData<ViewState<List<ShowVO>>>()
+    val viewState: LiveData<ViewState<List<ShowVO>>> = _viewState
 
-    fun fetchShowDetails(showId: Long) {
-        _viewState.value = ViewState.Loading
-
+    fun getFavoriteShows() {
         viewModelScope.launch {
             try {
-                val showDetails = showsRepository.getShowDetailsById(showId)
-                val favoriteId = showsRepository.findFavoriteByShowId(showId)?.showId ?: 0L
-                _viewState.value =
-                    ViewState.Loaded(data = showDetails.toShowUi().copy(favoriteId = favoriteId))
+                val favorites = showsRepository.getAllFavoriteShows()
+                val viewState = if (favorites.isEmpty()) {
+                    ViewState.Empty
+                } else {
+                    ViewState.Loaded(favorites.toShowVOUi())
+                }
+                _viewState.value = viewState
             } catch (error: Exception) {
                 _viewState.value = ViewState.Error
             }
@@ -43,10 +44,10 @@ class ShowDetailsViewModel @Inject constructor(
             try {
                 when {
                     addedToFavoriteList -> showsRepository.saveFavoriteShow(show.toFavoriteShowDomain())
-                    else -> showsRepository.deleteFavoriteShow(
-                        show.toFavoriteShowDomain().copy(id = show.favoriteId)
-                    )
+                    else -> showsRepository.deleteFavoriteShow(show.toFavoriteShowDomain())
                 }
+
+                getFavoriteShows()
             } catch (error: Exception) {
                 // TODO: add message to user
             }

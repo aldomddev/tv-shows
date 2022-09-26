@@ -19,13 +19,8 @@ class ShowsPagingSource @Inject constructor(
         return try {
             val showsResponse = tvMazeApi.getAllShows(page = pageIndex)
 
-            val prevPage = if (pageIndex == STARTING_PAGE) null else pageIndex
-
-            val nextPage = if (showsResponse.isEmpty()) {
-                null
-            } else {
-                pageIndex + 1
-            }
+            val prevPage = if (pageIndex == STARTING_PAGE) null else pageIndex - 1
+            val nextPage = if (showsResponse.isEmpty()) null else pageIndex + 1
 
             LoadResult.Page(
                 data = showsResponse.toDomainShow(),
