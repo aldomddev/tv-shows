@@ -18,13 +18,16 @@
     <fragment
         android:id="@+id/navigation_show_details"
         android:name="br.com.amd.tvshows.ui.showdetails.ShowDetailsFragment"
-        android:label="@string/title_dashboard"
+        android:label="@string/title_show_details"
         tools:layout="@layout/fragment_show_details">
 
         <argument
             android:name="showId"
             android:defaultValue="0L"
             app:argType="long" />
+        <action
+            android:id="@+id/action_show_details_screen_to_episode_details_screen"
+            app:destination="@id/episodeDetailsFragment" />
 
     </fragment>
 
@@ -43,4 +46,15 @@
         android:name="br.com.amd.tvshows.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/episodeDetailsFragment"
+        android:name="br.com.amd.tvshows.ui.episodedetails.EpisodeDetailsFragment"
+        android:label="@string/title_episode_details"
+        tools:layout="@layout/fragment_episode_details">
+
+        <argument
+            android:name="episode"
+            app:argType="br.com.amd.tvshows.ui.model.ShowEpisodeVO" />
+    </fragment>
 </navigation>

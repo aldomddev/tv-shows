@@ -1,5 +1,11 @@
 package br.com.amd.tvshows.ui.model
 
+import android.os.Parcelable
+import androidx.annotation.Keep
+import kotlinx.parcelize.Parcelize
+
+@Keep
+@Parcelize
 data class ShowEpisodeVO(
     val id: Long,
     val name: String,
@@ -8,4 +14,4 @@ data class ShowEpisodeVO(
     val number: Int,
     val mediumImageUrl: String,
     val originalImageUrl: String,
-)
+): Parcelable

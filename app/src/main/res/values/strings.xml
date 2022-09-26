@@ -3,4 +3,7 @@
     <string name="title_shows">Shows</string>
     <string name="title_dashboard">Search</string>
     <string name="title_notifications">Favorites</string>
+    <string name="title_show_details">Show details</string>
+    <string name="title_episode_details">Episode details</string>
+    <string name="episode_details.season_and_number">Episode %1$d, season %2$d</string>
 </resources>
