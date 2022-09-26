@@ -1,4 +1,4 @@
-package br.com.amd.tvshows.ui.dashboard
+package br.com.amd.tvshows.ui.searchshows
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

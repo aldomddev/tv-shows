@@ -1,4 +1,4 @@
-package br.com.amd.tvshows.ui.dashboard
+package br.com.amd.tvshows.ui.searchshows
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.amd.tvshows.databinding.FragmentSearchShowBinding
 import br.com.amd.tvshows.ui.model.ShowVO
-import br.com.amd.tvshows.ui.shows.ShowsFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

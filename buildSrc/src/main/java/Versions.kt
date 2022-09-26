@@ -8,6 +8,7 @@ object Versions {
     const val androidxNavigation = "2.5.2"
     const val androidxPaging = "3.1.1"
     const val androidxRoom = "2.4.3"
+    const val androidxSwipeRefreshLayout = "1.1.0"
     const val androidxWorkManager = "2.7.1"
 
     const val coil = "2.2.1"

@@ -1,4 +1,4 @@
-package br.com.amd.tvshows.ui.dashboard
+package br.com.amd.tvshows.ui.searchshows
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

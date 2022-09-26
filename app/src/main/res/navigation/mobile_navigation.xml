@@ -30,7 +30,7 @@
 
     <fragment
         android:id="@+id/navigation_search"
-        android:name="br.com.amd.tvshows.ui.dashboard.SearchShowFragment"
+        android:name="br.com.amd.tvshows.ui.searchshows.SearchShowFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_search_show" >
         <action
