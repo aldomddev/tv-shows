@@ -60,5 +60,6 @@ dependencies {
     dependOnLifecycle()
     dependOnNavigation()
     dependOnRetrofit()
+    dependOnRoom()
     dependOnTests()
 }

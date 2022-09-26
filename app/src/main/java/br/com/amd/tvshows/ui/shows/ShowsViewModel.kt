@@ -22,7 +22,6 @@ class ShowsViewModel @Inject constructor(
             enablePlaceholders = false
         ),
         pagingSourceFactory = { showsPagingSource }
-    ).flow.map { pagingData ->
-        pagingData.map { it.toShowUi() }
+    ).flow.map { pagingData -> pagingData.map { it.toShowUi() }
     }.cachedIn(viewModelScope)
 }

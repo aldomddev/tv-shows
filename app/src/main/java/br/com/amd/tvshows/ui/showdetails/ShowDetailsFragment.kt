@@ -30,6 +30,7 @@ class ShowDetailsFragment : Fragment() {
     private val viewModel: ShowDetailsViewModel by viewModels()
 
     private lateinit var adapter: GroupieAdapter
+    private var show: ShowVO? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,6 +46,7 @@ class ShowDetailsFragment : Fragment() {
         viewModel.fetchShowDetails(navArgs.showId)
         setAdapter()
         setObservers()
+        setListeners()
     }
 
     private fun setAdapter() {
@@ -70,6 +72,12 @@ class ShowDetailsFragment : Fragment() {
         }
     }
 
+    private fun setListeners() {
+        binding.cbFavorite.setOnClickListener {
+            viewModel.onFavoriteStateChanged(show, binding.cbFavorite.isChecked)
+        }
+    }
+
     private fun FragmentShowDetailsBinding.showLoadingState() {
 
     }
@@ -79,6 +87,8 @@ class ShowDetailsFragment : Fragment() {
     }
 
     private fun FragmentShowDetailsBinding.showLoadedState(showDetails: ShowVO) {
+        show = showDetails
+
         tvShowName.text = showDetails.name
         tvShowSummary.text = showDetails.summary.parseAsHtml()
 
@@ -99,6 +109,8 @@ class ShowDetailsFragment : Fragment() {
                 cgGenres.addView(chip)
             }
         }
+
+        cbFavorite.isChecked = showDetails.isFavorite
 
         if (showDetails.seasons.isNotEmpty()) {
             showDetails.seasons.forEach { season ->

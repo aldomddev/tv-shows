@@ -1,5 +1,6 @@
 package br.com.amd.tvshows.ui.mapper
 
+import br.com.amd.tvshows.domain.model.FavoriteShow
 import br.com.amd.tvshows.domain.model.Show
 import br.com.amd.tvshows.domain.model.ShowEpisode
 import br.com.amd.tvshows.domain.model.ShowSchedule
@@ -23,6 +24,15 @@ fun Show.toShowUi(): ShowVO {
 }
 
 fun List<Show>.toShowUi() = map { it.toShowUi() }
+
+fun ShowVO.toFavoriteShowDomain(): FavoriteShow {
+    return FavoriteShow(
+        id = 0,
+        showId = id,
+        name = name,
+        imageUrl = mediumImageUrl
+    )
+}
 
 fun ShowSchedule.toShowScheduleUi(): ShowScheduleVO {
     return ShowScheduleVO(time, days)

@@ -9,5 +9,8 @@ data class ShowVO(
     val originalImageUrl: String,
     val genres: List<String>,
     val schedule: ShowScheduleVO,
-    val seasons: List<ShowSeasonVO>
-)
+    val seasons: List<ShowSeasonVO>,
+    val favoriteId: Long = 0
+) {
+    val isFavorite: Boolean = favoriteId > 0
+}

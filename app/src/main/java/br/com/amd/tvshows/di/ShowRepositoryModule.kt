@@ -1,6 +1,6 @@
 package br.com.amd.tvshows.di
 
-import br.com.amd.tvshows.data.remote.ShowsRepositoryImpl
+import br.com.amd.tvshows.data.remote.repository.ShowsRepositoryImpl
 import br.com.amd.tvshows.domain.repository.ShowsRepository
 import dagger.Binds
 import dagger.Module
