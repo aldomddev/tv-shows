@@ -98,7 +98,7 @@ class ShowDetailsFragment : Fragment() {
 
         ivShowPoster.load(showDetails.mediumImageUrl)
 
-        val schedule = StringBuilder(getString(R.string.episode_details_airs_every))
+        val schedule = StringBuilder(getString(R.string.episode_details_airs_every) + " ")
         if (showDetails.schedule.days.isNotEmpty()) {
             showDetails.schedule.days.forEach { day ->
                 schedule.append("$day ")
