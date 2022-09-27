@@ -43,5 +43,7 @@ The project is not finished yet. The next updates will include the following mai
 - [ ] Loading, error and empty states for show detail screen
 - [ ] Loading, error and empty states for episode detail screen
 - [ ] Loading, error and empty states for search shows screen
+- [ ] Add success end error messages for adding and removing a show from favorites
+- [ ] Add support to add and remove from favorites on all shows screen list (and sync state with db)
 - [ ] Add pagination to favorites screen
 - [ ] Search person functionality
