@@ -19,7 +19,6 @@ class ShowsRepositoryImpl @Inject constructor(
     @IoDispatcher private val ioDispatcher: CoroutineDispatcher
 ) : ShowsRepository {
 
-
     override suspend fun getShowDetailsById(showId: Long): Show {
         return withContext(ioDispatcher) {
             tvMazeApi.getShowDetailsById(showId).toDomainShow()

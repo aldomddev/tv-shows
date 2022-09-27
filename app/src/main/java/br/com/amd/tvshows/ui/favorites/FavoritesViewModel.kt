@@ -49,7 +49,7 @@ class FavoritesViewModel @Inject constructor(
 
                 getFavoriteShows()
             } catch (error: Exception) {
-                // TODO: add message to user
+                _viewState.value = ViewState.Error
             }
         }
     }
