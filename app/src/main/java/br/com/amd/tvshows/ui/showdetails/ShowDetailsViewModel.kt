@@ -48,7 +48,7 @@ class ShowDetailsViewModel @Inject constructor(
                     )
                 }
             } catch (error: Exception) {
-                // TODO: add message to user
+                _viewState.value = ViewState.Error
             }
         }
     }
