@@ -26,13 +26,13 @@ The user is able to:
 ### Architecture and Technologies
 
 - Clean architecture + MVVM - 3 broad layers separation: data, domain and ui with object mappers for crossing boundaries
-- [Kotlin coroutines](https://developer.android.com/kotlin/coroutines)
+- [Kotlin coroutines](https://developer.android.com/kotlin/coroutines) for background work
 - [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) for dependency injection
 - [Room](https://developer.android.com/training/data-storage/room) for database
 - [Navigation component](https://developer.android.com/jetpack/compose/navigation)
-- [Paging 3](https://developer.android.com/topic/libraries/architecture/paging/v3-overview)
+- [Paging 3](https://developer.android.com/topic/libraries/architecture/paging/v3-overview) for pagination
 - [Coil](https://coil-kt.github.io/coil/) for image loading
-- [Retrofit](https://square.github.io/retrofit/) REST calls
+- [Retrofit](https://square.github.io/retrofit/) for REST calls
 - [Android Studio Dolphin | 2021.3.1](https://developer.android.com/studio)
 
 ### Adjustments and improvements
