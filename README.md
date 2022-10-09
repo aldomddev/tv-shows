@@ -4,7 +4,7 @@
 
 # tv-shows
 
-An unofficial TV shows app based on tvmaze api
+An unofficial TV shows app based on [tvmaze api](https://www.tvmaze.com/api)
 
 https://user-images.githubusercontent.com/47090245/192408322-4c570ace-3f96-437a-865e-b8b7906c74dd.mp4
 
